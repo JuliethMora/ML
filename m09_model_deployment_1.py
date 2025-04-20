@@ -1,7 +1,9 @@
 # Función para transformar el parametro URL en el formato esperado por el modelo
 def predict_popularity(url):
 
-    reg = joblib.load('stack_model.pkl') 
+    reg = gdown.download(('https://drive.google.com/file/d/1oy3QMpwGA23a_Aeg2DAxAIRAu5oztWCm/view?usp=drive_link','stack_model.pkl', 
+                    quiet = False)
+    #reg = joblib.load('stack_model.pkl') 
 
     url_ = pd.DataFrame([url], columns=['song'])
 
@@ -34,7 +36,7 @@ def predict_popularity(url):
     url_ = pd.concat([dataTraining.columns,url_]).fillna(0)
     url_ = url_.iloc[1:]
 
-    # Make prediction
+    #  prediction
     p1 = reg.predict(url_)[0]
 
     return p1
