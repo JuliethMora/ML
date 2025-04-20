@@ -1,7 +1,7 @@
 # Función para transformar el parametro URL en el formato esperado por el modelo
 def predict_popularity(url):
 
-    reg = gdown.download(('https://drive.google.com/file/d/1oy3QMpwGA23a_Aeg2DAxAIRAu5oztWCm/view?usp=drive_link','stack_model.pkl', 
+    reg = gdown.download('https://drive.google.com/file/d/1oy3QMpwGA23a_Aeg2DAxAIRAu5oztWCm/view?usp=drive_link','stack_model.pkl', 
                     quiet = False)
     #reg = joblib.load('stack_model.pkl') 
 
