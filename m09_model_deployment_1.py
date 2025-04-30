@@ -25,13 +25,28 @@ def predict_popularity(url):
     acousticness = pd.read_csv('acousticness.csv')
     #track_genre_encoded = pd.read_csv('track_genre_encoded.csv')
 
+    url_["explicit"] = int(url_["explicit"])
+    url_["danceability"] = float(url_["danceability"])
+    url_["energy"] = float(url_["energy"])
+    url_["key"] = int(url_["key"])
+    url_["mode"] = int(url_["mode"])
+    url_["speechiness"] = float(url_["speechiness"])
+    url_["acousticness"] = float(url_["acousticness"])
 
     #'duration_ms', 'loudness', 'track_genre_encoded''instrumentalness', 'liveness','valence', 'tempo', 'time_signature'
     
+    
+    
+    url_ = url_.join(explicit_cat.set_index("explicit"), on="explicit")
+    url_ = url_.join(danceability_cat.set_index("danceability"), on="danceability")
+    url_ = url_.join(energy_cat.set_index("energy"), on="energy")
+    url_ = url_.join(key_cat.set_index("key"), on="key")
+    url_ = url_.join(mode_cat.set_index("mode"), on="mode")
+    url_ = url_.join(speechiness_cat.set_index("speechiness"), on="speechiness")
+    url_ = url_.join(acousticness_cat.set_index("acousticness"), on="acousticness")
+    
     dumm_cols = [ 'explicit', 'danceability', 'energy', 'key', 'mode',
        'speechiness', 'acousticness']
-    
-    
 
     dumm = pd.DataFrame({i+"_"+str(int(url_[i][0])):[1] for i in dumm_cols})
     url_ = url_.join(dumm)
