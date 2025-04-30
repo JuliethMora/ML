@@ -68,6 +68,14 @@ def predict_popularity(url):
     cols = url_.select_dtypes(include=['object']).columns
     url_.drop(cols, axis=1, inplace=True)
     url_.drop(dumm_cols, axis=1, inplace=True)
+    
+    for col in dataTraining.columns:
+        if col not in url_.columns:
+            url_[col] = 0
+
+    # Reordenar las columnas exactamente como dataTraining
+    url_ = url_[dataTraining.columns]
+    
     url_ = pd.concat([dataTraining.columns,url_]).fillna(0)
     url_ = url_.iloc[1:]
 
