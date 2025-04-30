@@ -38,11 +38,7 @@ def predict_popularity(url):
 
     #  prediction
     p1 = reg.predict(url_)[0]
-
     return p1
-
- return p1[0]
-
 
 if __name__ == "__main__":
     
