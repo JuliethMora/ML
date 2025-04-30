@@ -1,3 +1,4 @@
+import gdown
 # Función para transformar el parametro URL en el formato esperado por el modelo
 def predict_popularity(url):
 
