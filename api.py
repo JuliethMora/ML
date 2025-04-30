@@ -39,7 +39,7 @@ class PhishingApi(Resource):
         args = parser.parse_args()
         
         return {
-         "result": prob(args['URL'])
+         "result": predict_popularity(args['URL'])
         }, 200
     
 if __name__ == '__main__':
