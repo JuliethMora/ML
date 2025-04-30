@@ -11,7 +11,7 @@ def predict_popularity(url):
                     quiet = False)
     #reg = joblib.load('stack_model.pkl') 
 
-    url_ = pd.DataFrame([url], columns=['song'])
+    url_ = pd.DataFrame([url], columns=['track_id'])
     print("Columnas disponibles:", url_.columns)
 
         
