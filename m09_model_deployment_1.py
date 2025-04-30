@@ -39,13 +39,13 @@ def predict_popularity(url):
     acousticness = pd.read_csv('acousticness.csv')
     #track_genre_encoded = pd.read_csv('track_genre_encoded.csv')
 
-    url_["explicit"] = int(url_["explicit"])
-    url_["danceability"] = float(url_["danceability"])
-    url_["energy"] = float(url_["energy"])
-    url_["key"] = int(url_["key"])
-    url_["mode"] = int(url_["mode"])
-    url_["speechiness"] = float(url_["speechiness"])
-    url_["acousticness"] = float(url_["acousticness"])
+    url_["explicit"] = (url_["explicit"]).astype(int)
+    url_["danceability"] = (url_["danceability"]).astype(float)
+    url_["energy"] = (url_["energy"]).astype(float)
+    url_["key"] = (url_["key"]).astype(int)
+    url_["mode"] = (url_["mode"]).astype(int)
+    url_["speechiness"] = (url_["speechiness"]).astype(float)
+    url_["acousticness"] = (url_["acousticness"]).astype(float)
 
     #'duration_ms', 'loudness', 'track_genre_encoded''instrumentalness', 'liveness','valence', 'tempo', 'time_signature'
     
