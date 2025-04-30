@@ -3,6 +3,7 @@ import joblib
 import pandas as pd
 import sys
 import os
+import requests
 
 # Función para transformar el parametro URL en el formato esperado por el modelo
 def predict_popularity(url):
@@ -10,9 +11,21 @@ def predict_popularity(url):
     reg = gdown.download('https://drive.google.com/file/d/1oy3QMpwGA23a_Aeg2DAxAIRAu5oztWCm/view?usp=drive_link','stack_model.pkl', 
                     quiet = False)
     #reg = joblib.load('stack_model.pkl') 
+    # Realizar la solicitud GET
+    response = requests.get(url)
+    data = response.json()
 
-    url_ = pd.DataFrame([url], columns=['track_id'])
+    # Extraer las filas del JSON
+    rows = [row["row"] for row in data["rows"]]
+
+    # Crear el DataFrame
+    url_ = pd.DataFrame(rows)
+
+    # Verificar las columnas disponibles
     print("Columnas disponibles:", url_.columns)
+    
+    #url_ = pd.DataFrame([url], columns=['track_id'])
+    #print("Columnas disponibles:", url_.columns)
 
         
     #duration_ms = pd.read_csv('duration_ms.csv')
