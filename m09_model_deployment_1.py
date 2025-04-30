@@ -38,6 +38,7 @@ def predict_popularity(url):
     speechiness_cat = pd.read_csv('speechiness.csv')
     acousticness_cat = pd.read_csv('acousticness.csv')
     #track_genre_encoded = pd.read_csv('track_genre_encoded.csv')
+    dataTraining = pd.read_csv('dataTraining.csv')
 
     url_["explicit"] = (url_["explicit"]).astype(int)
     url_["danceability"] = (url_["danceability"]).astype(float)
