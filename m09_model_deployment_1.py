@@ -12,6 +12,7 @@ def predict_popularity(url):
     #reg = joblib.load('stack_model.pkl') 
 
     url_ = pd.DataFrame([url], columns=['song'])
+    print("Columnas disponibles:", url_.columns)
 
         
     #duration_ms = pd.read_csv('duration_ms.csv')
