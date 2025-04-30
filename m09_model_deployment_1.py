@@ -29,14 +29,14 @@ def predict_popularity(url):
 
         
     #duration_ms = pd.read_csv('duration_ms.csv')
-    explicit = pd.read_csv('explicit.csv')
-    danceability = pd.read_csv('danceability.csv')
-    energy = pd.read_csv('energy.csv')
-    key = pd.read_csv('key.csv')
+    explicit_cat = pd.read_csv('explicit.csv')
+    danceability_cat = pd.read_csv('danceability.csv')
+    energy_cat = pd.read_csv('energy.csv')
+    key_cat = pd.read_csv('key.csv')
     #loudness = pd.read_csv('loudness.csv')
-    mode = pd.read_csv('mode.csv')
-    speechiness = pd.read_csv('speechiness.csv')
-    acousticness = pd.read_csv('acousticness.csv')
+    mode_cat = pd.read_csv('mode.csv')
+    speechiness_cat = pd.read_csv('speechiness.csv')
+    acousticness_cat = pd.read_csv('acousticness.csv')
     #track_genre_encoded = pd.read_csv('track_genre_encoded.csv')
 
     url_["explicit"] = (url_["explicit"]).astype(int)
