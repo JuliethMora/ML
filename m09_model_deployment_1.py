@@ -61,7 +61,7 @@ def predict_popularity(url):
     
     dumm_cols = [ 'explicit', 'danceability', 'energy', 'key', 'mode',
        'speechiness', 'acousticness']
-
+    
     dumm = pd.DataFrame({i+"_"+str(int(url_[i][0])):[1] for i in dumm_cols})
     url_ = url_.join(dumm)
     cols = url_.select_dtypes(include=['object']).columns
