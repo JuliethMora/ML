@@ -40,3 +40,21 @@ def predict_popularity(url):
     p1 = reg.predict(url_)[0]
 
     return p1
+
+ return p1[0]
+
+
+if __name__ == "__main__":
+    
+    if len(sys.argv) == 1:
+        print('Please add an URL')
+        
+    else:
+
+        url = sys.argv[1]
+
+        p1 = predict_popularity(url)
+        
+        print(url)
+        print('Prediction: ', p1)
+        
