@@ -7,10 +7,20 @@ import requests
 
 # Función para transformar el parametro URL en el formato esperado por el modelo
 def predict_popularity(url):
+    
+    file_id = '1oy3QMpwGA23a_Aeg2DAxAIRAu5oztWCm'
+    output_path = 'stack_model.pkl'
 
-    reg = gdown.download('https://drive.google.com/file/d/1oy3QMpwGA23a_Aeg2DAxAIRAu5oztWCm/view?usp=drive_link','stack_model.pkl', 
-                    quiet = False)
+    # Descargar el archivo desde Google Drive
+    gdown.download(f'https://drive.google.com/uc?id={file_id}', output_path, quiet=False)
+
+    # Cargar el modelo
+    reg = joblib.load(output_path)
+    
+    #reg = gdown.download('https://drive.google.com/file/d/1oy3QMpwGA23a_Aeg2DAxAIRAu5oztWCm/view?usp=drive_link','stack_model.pkl', 
+    #                quiet = False)
     #reg = joblib.load('stack_model.pkl') 
+    
     # Realizar la solicitud GET
     response = requests.get(url)
     data = response.json()
