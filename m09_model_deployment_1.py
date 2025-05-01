@@ -76,7 +76,7 @@ def predict_popularity(url):
     # Reordenar las columnas exactamente como dataTraining
     url_ = url_[dataTraining.columns]
     
-    url_ = pd.concat([dataTraining.columns,url_]).fillna(0)
+    #url_ = pd.concat([dataTraining.columns,url_]).fillna(0)
     url_ = url_.iloc[1:]
 
     #  prediction
